@@ -38,7 +38,14 @@ jobs:
       uses: google-github-actions/deploy-cloudrun@v1
       with:
         service:  ${{ env.SERVICE }}
-        image: ${{ env.ARTIFACT }}/$PROJECT_ID/$BUCKET_NAME/$IMAGE_NAME:latest
+        region: us-central1
+        platform: managed
+        image: us-central1-docker.pkg.dev/curso-itj-2023/curso-2023/api-img:latest
+        env_vars:
+          POSTGRES_DB=bbvartlv
+          POSTGRES_USER=bbvartlv
+          POSTGRES_PASSWORD=sT-iCRSxdaf8zB-m0Qcf25NriKemzTYP
+          POSTGRES_HOST=otto.db.elephantsql.com
 
     - name: 'Use output'
       run: 'curl "${{ steps.deploy.outputs.url }}"'
