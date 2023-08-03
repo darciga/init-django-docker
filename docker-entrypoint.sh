@@ -9,5 +9,5 @@ echo Starting server
       --log-level=info --host=0.0.0.0 --port=8080 \
       --workers 1
   else
-    python manage.py runserver 0.0.0.0:8080
+    python manage.py runserver 0.0.0.0:8000
   fi

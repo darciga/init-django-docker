@@ -18,6 +18,9 @@ class Task(AbstractModel):
     )
     expired_at = models.DateTimeField(null=True, blank=True)
 
+    def __str__(self):
+        return f"{self.id} - {self.title}"
+
 
 class Comment(AbstractModel):
     task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='comment_task')
