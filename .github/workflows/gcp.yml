@@ -42,6 +42,7 @@ jobs:
         image: us-central1-docker.pkg.dev/curso-itj-2023/curso-2023/api-img:latest
         env_vars: |
           POSTGRES_USER=bbvartlv
+          POSTGRES_NAME=bbvartlv
           POSTGRES_PASSWORD=sT-iCRSxdaf8zB-m0Qcf25NriKemzTYP
           POSTGRES_HOST=otto.db.elephantsql.com
           DEBUG=1
