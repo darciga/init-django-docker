@@ -8,7 +8,7 @@ jobs:
     name: Build and Push to GCP
     runs-on: ubuntu-latest
     env:
-      SERVICE: api-srv
+      SERVICE: api-service
       IMAGE_NAME: api-img
       PROJECT_ID: curso-itj-2023
       BUCKET_NAME: curso-2023
@@ -39,13 +39,12 @@ jobs:
       with:
         service:  ${{ env.SERVICE }}
         region: us-central1
-        platform: managed
         image: us-central1-docker.pkg.dev/curso-itj-2023/curso-2023/api-img:latest
         env_vars: |
-          POSTGRES_DB=bbvartlv
           POSTGRES_USER=bbvartlv
           POSTGRES_PASSWORD=sT-iCRSxdaf8zB-m0Qcf25NriKemzTYP
           POSTGRES_HOST=otto.db.elephantsql.com
+          DEBUG=1
 
     - name: 'Use output'
       run: 'curl "${{ steps.deploy.outputs.url }}"'
